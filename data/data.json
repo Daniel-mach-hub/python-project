@@ -1,0 +1,12 @@
+{
+    "pets": [],
+    "adopters": [
+        {
+            "id": 1,
+            "name": "louis",
+            "phone": "09867545354",
+            "email": "gfgffg"
+        }
+    ],
+    "adoptions": []
+}
