@@ -26,20 +26,35 @@ def add_course(data):
     data["courses"].append(course)
     print("Course added.")
 
+def show_courses(data):
+    print("\nAvailable Courses:")
+    for course in data["courses"]:
+        print(f"{course['id']}: {course['name']}")
+
 def assign_grade(data):
     try:
         student_id = int(input("Student ID: "))
+    except ValueError:
+        print("Invalid Student ID.")
+        return
+
+    student = next((s for s in data["students"] if s["id"] == student_id), None)
+    if not student:
+        print("Student not found.")
+        return
+
+    show_courses(data)
+
+    try:
         course_id = int(input("Course ID: "))
         grade = input("Grade (e.g. A, B+): ")
     except ValueError:
         print("Invalid input.")
         return
 
-    student = next((s for s in data["students"] if s["id"] == student_id), None)
     course = next((c for c in data["courses"] if c["id"] == course_id), None)
-
-    if not student or not course:
-        print("Student or course not found.")
+    if not course:
+        print("Course not found.")
         return
 
     existing = next((g for g in data["grades"] if g["student_id"] == student_id and g["course_id"] == course_id), None)
@@ -55,9 +70,13 @@ def assign_grade(data):
     print("Grade assigned.")
 
 def view_grades(data):
-    student_id = int(input("Enter student ID: "))
-    student = next((s for s in data["students"] if s["id"] == student_id), None)
+    try:
+        student_id = int(input("Enter student ID: "))
+    except ValueError:
+        print("Invalid Student ID.")
+        return
 
+    student = next((s for s in data["students"] if s["id"] == student_id), None)
     if not student:
         print("Student not found.")
         return
@@ -76,15 +95,7 @@ def view_grades(data):
 def main():
     data = load_data()
 
-    # Preloaded students
-    if not data.get("students"):
-        data["students"] = [
-            {"id": 1, "name": "John Doe", "email": "john@example.com"},
-            {"id": 2, "name": "Jane Smith", "email": "jane@example.com"},
-            {"id": 3, "name": "Carlos Mendoza", "email": "carlos@example.com"}
-        ]
-
-    # Preloaded courses
+    # Only keep predefined courses; students and grades will be fresh
     if not data.get("courses"):
         data["courses"] = [
             {"id": 1, "name": "Mathematics"},
@@ -92,16 +103,11 @@ def main():
             {"id": 3, "name": "Computer Science"}
         ]
 
-    # Preloaded grades
+    if not data.get("students"):
+        data["students"] = []
+
     if not data.get("grades"):
-        data["grades"] = [
-            {"student_id": 1, "course_id": 1, "grade": "A"},
-            {"student_id": 1, "course_id": 2, "grade": "B+"},
-            {"student_id": 2, "course_id": 1, "grade": "A-"},
-            {"student_id": 2, "course_id": 3, "grade": "B"},
-            {"student_id": 3, "course_id": 2, "grade": "C+"},
-            {"student_id": 3, "course_id": 3, "grade": "A"}
-        ]
+        data["grades"] = []
 
     while True:
         show_menu()
