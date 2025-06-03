@@ -1,12 +1,138 @@
 {
-    "pets": [],
+    "pets": [
+        {
+            "id": 1,
+            "name": "Rex",
+            "species": "Pitbull",
+            "age": 4,
+            "adopted": false
+        },
+        {
+            "id": 2,
+            "name": "Bella",
+            "species": "German Shepherd",
+            "age": 3,
+            "adopted": false
+        },
+        {
+            "id": 3,
+            "name": "Milo",
+            "species": "Golden Retriever",
+            "age": 2,
+            "adopted": false
+        }
+    ],
     "adopters": [
         {
             "id": 1,
             "name": "louis",
             "phone": "09867545354",
             "email": "gfgffg"
+        },
+        {
+            "id": 2,
+            "name": "1",
+            "phone": "1",
+            "email": "1"
+        },
+        {
+            "id": 3,
+            "name": "shem",
+            "phone": "0756678997",
+            "email": "huu@gmail.com"
+        },
+        {
+            "id": 4,
+            "name": "mike",
+            "phone": "080388773",
+            "email": "nhuu@gmail.com"
         }
     ],
-    "adoptions": []
+    "adoptions": [],
+    "students": [
+        {
+            "id": 1,
+            "name": "John Doe",
+            "email": "john@example.com"
+        },
+        {
+            "id": 2,
+            "name": "Jane Smith",
+            "email": "jane@example.com"
+        },
+        {
+            "id": 3,
+            "name": "Carlos Mendoza",
+            "email": "carlos@example.com"
+        },
+        {
+            "id": 4,
+            "name": "henry",
+            "email": "henry@gmail.com"
+        },
+        {
+            "id": 5,
+            "name": "Naomi",
+            "email": "Naomi@gmail.com"
+        }
+    ],
+    "courses": [
+        {
+            "id": 1,
+            "name": "Mathematics"
+        },
+        {
+            "id": 2,
+            "name": "English"
+        },
+        {
+            "id": 3,
+            "name": "Computer Science"
+        },
+        {
+            "id": 4,
+            "name": "Mathematics"
+        },
+        {
+            "id": 5,
+            "name": "English"
+        }
+    ],
+    "grades": [
+        {
+            "student_id": 1,
+            "course_id": 1,
+            "grade": ""
+        },
+        {
+            "student_id": 1,
+            "course_id": 2,
+            "grade": "B+"
+        },
+        {
+            "student_id": 2,
+            "course_id": 1,
+            "grade": "A-"
+        },
+        {
+            "student_id": 2,
+            "course_id": 3,
+            "grade": "B"
+        },
+        {
+            "student_id": 3,
+            "course_id": 2,
+            "grade": "C+"
+        },
+        {
+            "student_id": 3,
+            "course_id": 3,
+            "grade": "A"
+        },
+        {
+            "student_id": 4,
+            "course_id": 2,
+            "grade": "A"
+        }
+    ]
 }
